@@ -11,20 +11,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Telefones")
+@Table(name = "Emails")
 
 @Getter
 @Setter
-public class Telefones {
-
+public class Email {
+    
     @Id
     @ManyToOne
-    @JoinColumn(name = "Id_Telefone", nullable = false )
-    private byte id_Telefone;
+    @JoinColumn(name = "Id_Email", nullable = false)
+    private byte id_Email;
 
-    @Column(name = "Telefone_Principal")
-    private String telefone1;
+    @Column(name = "Email_Principal")
+    private String email;
 
-    @Column(name = "Telefone_Alternativo")
-    private String telefone2;
+    @Column(name = "Email_Alternativo")
+    private String email2;
 }
