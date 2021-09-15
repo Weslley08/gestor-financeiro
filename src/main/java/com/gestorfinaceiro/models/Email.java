@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +23,8 @@ public class Email {
     @JoinColumn(name = "Id_Email", nullable = false)
     private byte id_Email;
 
-    @Column(name = "Email_Principal")
+    @NotEmpty
+    @Column(name = "Email_Principal", length = 100)
     private String email;
 
     @Column(name = "Email_Alternativo")
