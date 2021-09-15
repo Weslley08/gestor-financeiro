@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
 
+//Classe para trsansformar o objeto EmailDTO em entidade Email e vice e versa
+
 @Component
 public class EmailMapper {
 
