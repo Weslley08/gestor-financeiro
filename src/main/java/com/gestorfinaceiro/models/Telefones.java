@@ -2,6 +2,8 @@ package com.gestorfinaceiro.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,9 +21,10 @@ import lombok.Setter;
 public class Telefones {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @ManyToOne
     @JoinColumn(name = "Id_Telefone", nullable = false )
-    private byte id_Telefone;
+    private byte idTelefone;
 
     @NotEmpty
     @Column(name = "Telefone_Principal", length = 50)

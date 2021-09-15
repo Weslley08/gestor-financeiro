@@ -3,14 +3,14 @@ package com.gestorfinaceiro.models;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -19,25 +19,38 @@ import javax.validation.constraints.NotEmpty;
 
 @Getter
 @Setter
-public class Clientes implements Serializable {
-    
+public class Clientes {
+
     @Id
     @NotEmpty
-    @Column(name = "CPF", length = 50)
+    @Column(name = "CPF", length = 15)
     private String cpf;
 
     @Column(name = "Id")
-    private long id;
+    private long idCliente;
 
     @NotEmpty
-    @Column(name = "Nome", length = 100)
+    @Column(name = "Nome", length = 80)
     private String nome;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Clientes")
-    @Column(name = "Email")
+    @NotEmpty
+    @Column(name = "Sexo", length = 10)
+    @Enumerated(EnumType.STRING)
+    private Sexo sexo;
+
+    @NotEmpty
+    @Column(name = "Endereço", length = 100)
+    @Enumerated(EnumType.STRING)
+    private Endereco endereco;
+
+    @NotEmpty
+    @Column(name = "Telefone", length = 15)
+    @Enumerated(EnumType.STRING)
+    private Telefone telefone;
+
+    @NotEmpty
+    @Column(name = "Email", length = 50)
+    @Enumerated(EnumType.STRING)
     private Email email;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Clientes")
-    private Telefones telefone;
-    
 }
