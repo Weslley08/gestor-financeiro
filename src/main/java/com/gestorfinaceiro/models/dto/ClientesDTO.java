@@ -1,4 +1,4 @@
-package com.gestorfinaceiro.dto;
+package com.gestorfinaceiro.models.dto;
 
 import com.sun.istack.NotNull;
 

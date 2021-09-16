@@ -1,7 +1,8 @@
 package com.gestorfinaceiro.mapper;
 
-import com.gestorfinaceiro.dto.EmailDTO;
-import com.gestorfinaceiro.models.Email;
+import com.gestorfinaceiro.models.dto.EmailDTO;
+import com.gestorfinaceiro.models.entity.Email;
+
 import org.springframework.stereotype.Component;
 
 import java.util.List;

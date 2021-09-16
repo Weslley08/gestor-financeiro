@@ -1,4 +1,4 @@
-package com.gestorfinaceiro.models;
+package com.gestorfinaceiro.models.entity;
 
 public enum Endereco {
     

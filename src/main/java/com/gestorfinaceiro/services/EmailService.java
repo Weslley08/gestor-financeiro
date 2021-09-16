@@ -1,9 +1,9 @@
 package com.gestorfinaceiro.services;
 
-import com.gestorfinaceiro.dto.EmailDTO;
 import com.gestorfinaceiro.exceptions.EmailException;
 import com.gestorfinaceiro.mapper.EmailMapper;
-import com.gestorfinaceiro.models.Email;
+import com.gestorfinaceiro.models.dto.EmailDTO;
+import com.gestorfinaceiro.models.entity.Email;
 import com.gestorfinaceiro.repository.EmailRepository;
 
 import com.gestorfinaceiro.utils.MessageUtils;

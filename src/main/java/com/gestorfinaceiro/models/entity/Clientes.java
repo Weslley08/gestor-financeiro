@@ -1,4 +1,4 @@
-package com.gestorfinaceiro.models;
+package com.gestorfinaceiro.models.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,7 +44,7 @@ public class Clientes {
     @NotEmpty
     @Column(name = "Telefone", length = 15)
     @Enumerated(EnumType.STRING)
-    private Telefone telefone;
+    private Telefones telefones;
 
     @NotEmpty
     @Column(name = "Email", length = 50)

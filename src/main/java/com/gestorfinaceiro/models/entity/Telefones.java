@@ -1,4 +1,4 @@
-package com.gestorfinaceiro.models;
+package com.gestorfinaceiro.models.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
