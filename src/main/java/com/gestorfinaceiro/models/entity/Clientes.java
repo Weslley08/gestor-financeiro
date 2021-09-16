@@ -1,22 +1,22 @@
 package com.gestorfinaceiro.models.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
-@Entity
+@Entity(name = "Clientes")
 @Table(name = "Clientes")
 
-@Getter
-@Setter
+@Data
 public class Clientes {
 
     @Id
@@ -25,7 +25,7 @@ public class Clientes {
     private String cpf;
 
     @Column(name = "Id")
-    private long idCliente;
+    private Long idCliente;
 
     @NotEmpty
     @Column(name = "Nome", length = 80)
@@ -36,9 +36,9 @@ public class Clientes {
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Clientes")
     @NotEmpty
-    @Column(name = "Endereço", length = 100)
-    @Enumerated(EnumType.STRING)
+    @Column(name = "Endereço")
     private Endereco endereco;
 
     @NotEmpty

@@ -8,20 +8,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 @Entity
 @Table(name = "Receitas")
 
-@Getter
-@Setter
+@Data
 public class Receitas {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "Id_Receitas")
-    private long idReceitas;
+    private Long idReceitas;
 
     @NotEmpty
     @Column(name = "Titulo_da_receita", length = 50)

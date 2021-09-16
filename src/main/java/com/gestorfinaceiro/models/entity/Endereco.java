@@ -1,17 +1,35 @@
 package com.gestorfinaceiro.models.entity;
 
-public enum Endereco {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+import lombok.Data;
+
+@Entity
+@Table(name = "Endereço")
+
+@Data
+public class Endereco {
     
-    PESSOAL("pessoal"),
-    COMERCIAL("comercial");
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @ManyToOne
+    @JoinColumn(name = "Id_Endereco", nullable = false )
+    private Long idEndereco;
 
-    private final String endereco;
+    @NotEmpty
+    @Column(name = "CEP")
+    private String cep;
 
-    Endereco(String endereco) {
-        this.endereco = endereco;
-    }
+    @NotEmpty
+    @Column(name = "Número_da_casa")
+    private String numeroCasa;
 
-    public String getEndereco() {
-        return endereco;
-    }
 }
