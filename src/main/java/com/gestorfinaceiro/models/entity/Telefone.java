@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Entity
-@Table(name = "Telefones")
+@Table(name = "TELEFONE")
 
 @Data
 public class Telefone {
@@ -21,13 +21,13 @@ public class Telefone {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @ManyToOne
-    @JoinColumn(name = "Id_Telefone", nullable = false )
+    @JoinColumn(name = "ID_TELEFONE", nullable = false )
     private Long idTelefone;
 
     @NotEmpty
-    @Column(name = "Telefone_Principal", length = 50)
+    @Column(name = "TELEFONE_PRINCIPAL", length = 50)
     private String telefone1;
 
-    @Column(name = "Telefone_Alternativo")
+    @Column(name = "TELEFONE_ALTERNATIVO")
     private String telefone2;
 }

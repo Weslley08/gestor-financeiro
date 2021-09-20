@@ -11,42 +11,42 @@ import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Entity
-@Table(name = "Despesas")
+@Table(name = "DESPESA")
 
 @Data
 public class Despesa {
     
     @Id
-    @Column(name = "Id_Despesa")
+    @Column(name = "ID_DESPESA")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long idDespesas;
 
     @NotEmpty
-    @Column(name = "Titulo_da_despesa", length = 50)
+    @Column(name = "TITULO_DA_DESPESA", length = 50)
     private String tituloDespesa;
 
-    @Column(name = "Tipo_de_despesa", length = 100)
+    @Column(name = "TIPO_DE_DESPESA", length = 100)
     @NotEmpty
     private String tipoDespesa;
 
-    @Column(name = "Data_da_despesa", length = 20)
+    @Column(name = "DATA_DA_DESPESA", length = 20)
     @NotEmpty
     private String dataDespesa;
 
-    @Column(name = "Data_do_pagamento", length = 20)
+    @Column(name = "DATA_DO_PAGAMENTO", length = 20)
     @NotEmpty
     private String dataPagamento;
 
-    @Column(name = "Item", length = 25)
+    @Column(name = "ITEM", length = 25)
     @NotEmpty
     private String item;
 
-    @Column(name = "Local", length = 50)
+    @Column(name = "LOCAL", length = 50)
     @NotEmpty
     private String local;
 
     @NotEmpty 
-    @Column(name = "Valor_da_despesa")
+    @Column(name = "VALOR_DO_PAGAMENTO")
     private double valorDespesa;
 
 }

@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Entity
-@Table(name = "Email")
+@Table(name = "EMAIL")
 
 @Data
 public class Email {
@@ -21,15 +21,15 @@ public class Email {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ManyToOne
-    @JoinColumn(name = "Id_Email", nullable = false)
+    @JoinColumn(name = "ID_EMAIL", nullable = false)
     private Long idEmail;
 
     @NotEmpty
-    @Column(name = "Email_Pessoal")
+    @Column(name = "EMAIL_PESSOAL")
     private String emailPessoal;
 
     @NotEmpty
-    @Column(name = "Email_Alternativo")
+    @Column(name = "EMAIL_ALTERNATIVO")
     private String emailAlternativo;
 
 }
