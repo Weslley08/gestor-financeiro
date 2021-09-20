@@ -14,6 +14,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 import com.gestorfinaceiro.models.enums.TipoSexo;
 
@@ -49,17 +50,17 @@ public class Cliente {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
     @NotEmpty
     @Column(name = "ENDEREÇO")
-    private Endereco endereco;
+    private List<Endereco> endereco;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
     @NotEmpty
     @Column(name = "TELEFONE", length = 15)
     private Telefone telefones;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "EMAIL")
     @NotEmpty
     @Column(name = "EMAIL", length = 50)
-    private Email email;
+    private List<Email> email;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
     @NotEmpty
