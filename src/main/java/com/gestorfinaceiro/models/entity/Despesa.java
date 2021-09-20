@@ -14,7 +14,7 @@ import lombok.Data;
 @Table(name = "Despesas")
 
 @Data
-public class Despesas {
+public class Despesa {
     
     @Id
     @Column(name = "Id_Despesa")

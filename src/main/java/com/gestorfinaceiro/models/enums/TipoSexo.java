@@ -15,4 +15,8 @@ public enum TipoSexo {
         return tipoSexo;
     }
 
+    public String setSexo() {
+        return tipoSexo;
+    }
+
 }
