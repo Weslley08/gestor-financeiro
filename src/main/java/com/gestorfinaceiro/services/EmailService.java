@@ -63,14 +63,16 @@ public class EmailService {
     }
 
     @Transactional
-    public EmailDTO delete(Byte idEmail) {
-        EmailDTO dto = this.findByIdEmail(idEmail);
-        repository.deleteById(dto.getidEmail());
+    public EmailDTO delete(Byte id_email) throws NotFoundException {
+        EmailDTO dto = this.findByIdEmail(id_email);
+        repository.deleteById(dto.getId_Email());
         return dto;
     }
 
-    private EmailDTO findByIdEmail(Byte id_email) {
-        return repository.findByIdEmail(id_email).map(mapper::toDto).orElseThrow(NotFoundException::new);
+    private EmailDTO findByIdEmail(Byte id_email) throws NotFoundException {
+        return repository.findByIdEmail(id_email)
+                .map(mapper::toDto)
+                .orElseThrow(() -> new NotFoundException("Email não existe"));
     }
 
     @Transactional(readOnly = true)

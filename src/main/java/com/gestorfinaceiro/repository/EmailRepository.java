@@ -19,3 +19,4 @@ public interface EmailRepository extends JpaRepository <Email, Long> {
 
     Optional<Email> findByIdEmail(Byte idEmail);
 }
+
