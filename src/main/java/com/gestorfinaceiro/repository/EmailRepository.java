@@ -13,7 +13,7 @@ import com.gestorfinaceiro.models.entity.Email;
 public interface EmailRepository extends JpaRepository <Email, Long> {
     Optional<Email> findByEmail(String email);
 
-    Optional<Email> findByEmailUpdate(String email, byte id_idEmailemail);
+    Optional<Email> findByEmailUpdate(String email, Long long1);
 
     void deleteById(Byte idEmail);
 

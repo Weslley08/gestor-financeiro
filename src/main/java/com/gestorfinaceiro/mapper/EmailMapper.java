@@ -22,15 +22,15 @@ public class EmailMapper {
 
         public Email toEntity(EmailDTO dto) {
             Email email = new Email();
-            email.setEmail(dto.getEmail());
-            email.setEmail2(dto.getEmail2());
+            email.setEmailPessoal(dto.getEmailPessoal());
+            email.setEmailAlternativo(dto.getEmailAlternativo());
             return email;
         }
 
         public EmailDTO toDto(Email email) {
             EmailDTO dto = new EmailDTO();
-            dto.setEmail(email.getEmail());
-            dto.setEmail2(email.getEmail2());
+            dto.setEmailPessoal(email.getEmailPessoal());
+            dto.setEmailAlternativo(email.getEmailAlternativo());
 
             return dto;
         }

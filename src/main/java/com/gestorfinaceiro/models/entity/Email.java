@@ -37,4 +37,22 @@ public class Email {
     @Column(name = "EMAIL_ALTERNATIVO")
     private String emailAlternativo;
 
+    public String getEmailPessoal() {
+        return emailPessoal;
+    }
+
+    public void setEmailPessoal(String emailPessoal) {
+        this.emailPessoal = emailPessoal;
+    }
+
+    public String getEmailAlternativo() {
+        return emailAlternativo;
+    }
+
+    public void setEmailAlternativo(String emailAlternativo) {
+        this.emailAlternativo = emailAlternativo;
+    }
+
+
+    
 }

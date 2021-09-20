@@ -14,12 +14,40 @@ import org.springframework.lang.Nullable;
 public class EmailDTO {
 
     @NotEmpty
-    private byte idEmail;
+    private Long idEmail;
 
     @NotEmpty
     private String emailPessoal;
 
     @Nullable
     private String emailAlternativo;
+
+
+    
+    public Long getIdEmail() {
+        return idEmail;
+    }
+
+    public void setIdEmail(Long idEmail) {
+        this.idEmail = idEmail;
+    }
+
+    public String getEmailPessoal() {
+        return emailPessoal;
+    }
+
+    public void setEmailPessoal(String emailPessoal) {
+        this.emailPessoal = emailPessoal;
+    }
+
+    public String getEmailAlternativo() {
+        return emailAlternativo;
+    }
+
+    public void setEmailAlternativo(String emailAlternativo) {
+        this.emailAlternativo = emailAlternativo;
+    }
+
+    
 
 }

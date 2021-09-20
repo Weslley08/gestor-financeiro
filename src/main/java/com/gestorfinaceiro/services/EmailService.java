@@ -39,7 +39,7 @@ public class EmailService {
     // Salvar email no Bancode dados
     @Transactional
     public EmailDTO save(EmailDTO dto) {
-        Optional<Email> optionalEmail = repository.findByEmail(dto.getEmail());
+        Optional<Email> optionalEmail = repository.findByEmail(dto.getEmailPessoal());
         if (optionalEmail.isPresent()) {
             throw new EmailException(MessageUtils.EMAIL_JA_EXISTENTE);
         }
@@ -52,7 +52,7 @@ public class EmailService {
     // Atualizar email por id
     @Transactional
     public EmailDTO update(EmailDTO dto) {
-        Optional<Email> optionalEmail = repository.findByEmailUpdate(dto.getEmail(), dto.getId_Email());
+        Optional<Email> optionalEmail = repository.findByEmailUpdate(dto.getEmailPessoal(), dto.getIdEmail());
         if (optionalEmail.isPresent()) {
             throw new EmailException(MessageUtils.EMAIL_JA_EXISTENTE);
         }
@@ -65,12 +65,12 @@ public class EmailService {
     @Transactional
     public EmailDTO delete(Byte idEmail) {
         EmailDTO dto = this.findByIdEmail(idEmail);
-        repository.deleteById(dto.getidEmail());
+        repository.deleteById(dto.getIdEmail());
         return dto;
     }
 
-    private EmailDTO findByIdEmail(Byte id_email) {
-        return repository.findByIdEmail(id_email).map(mapper::toDto).orElseThrow(NotFoundException::new);
+    private EmailDTO findByIdEmail(Byte idEmail) {
+        return repository.findByIdEmail(idEmail).map(mapper::toDto).orElseThrow(NotFoundException::new);
     }
 
     @Transactional(readOnly = true)
