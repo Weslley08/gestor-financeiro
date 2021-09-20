@@ -17,5 +17,5 @@ public interface EmailRepository extends JpaRepository <Email, Long> {
 
     void deleteById(Byte idEmail);
 
-    Optional<Email> findByIdEmail(Byte idEmail);
+    Optional<Email> findByIdEmail(Long idEmail);
 }

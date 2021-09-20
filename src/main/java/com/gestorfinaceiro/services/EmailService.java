@@ -8,6 +8,7 @@ import com.gestorfinaceiro.repository.EmailRepository;
 
 import com.gestorfinaceiro.utils.MessageUtils;
 import javassist.NotFoundException;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -63,13 +64,13 @@ public class EmailService {
     }
 
     @Transactional
-    public EmailDTO delete(Byte idEmail) {
+    public EmailDTO delete(Long idEmail) {
         EmailDTO dto = this.findByIdEmail(idEmail);
         repository.deleteById(dto.getIdEmail());
         return dto;
     }
 
-    private EmailDTO findByIdEmail(Byte idEmail) {
+    private EmailDTO findByIdEmail(Long idEmail) {
         return repository.findByIdEmail(idEmail).map(mapper::toDto).orElseThrow(NotFoundException::new);
     }
 
