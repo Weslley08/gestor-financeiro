@@ -13,7 +13,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
-@Entity(name = "Clientes")
+@Entity
 @Table(name = "Clientes")
 
 @Data
@@ -36,7 +36,7 @@ public class Cliente {
     @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Clientes")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
     @NotEmpty
     @Column(name = "ENDEREÇO")
     private Endereco endereco;
@@ -46,7 +46,7 @@ public class Cliente {
     @Enumerated(EnumType.STRING)
     private Telefone telefones;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Clientes")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
     @NotEmpty
     @Column(name = "EMAIL", length = 50)
     private Email email;
