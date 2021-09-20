@@ -1,19 +1,25 @@
 package com.gestorfinaceiro.models.dto;
 
-import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotEmpty;
+
 import org.springframework.lang.Nullable;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class EmailDTO {
 
-    @NotNull
-    private byte id_Email;
+    @NotEmpty
+    private byte idEmail;
 
-    @NotNull
-    private String email;
+    @NotEmpty
+    private String emailPessoal;
 
     @Nullable
-    private String email2;
+    private String emailAlternativo;
 
 }

@@ -1,4 +1,4 @@
-package com.gestorfinaceiro.exceptions;
+package com.gestorfinaceiro.utils.exceptions;
 
 import com.gestorfinaceiro.utils.MessageUtils;
 

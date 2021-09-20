@@ -5,21 +5,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "RECEITA")
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Receita {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "ID_RECEITA")
-    private Long idReceitas;
+    private Long idReceita;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_RECEITA")
+    private Cliente cliente;
 
     @NotEmpty
     @Column(name = "TITULO_DA_RECEITA", length = 50)

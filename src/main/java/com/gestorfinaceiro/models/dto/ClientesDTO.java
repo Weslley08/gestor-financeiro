@@ -1,18 +1,18 @@
 package com.gestorfinaceiro.models.dto;
 
-import com.sun.istack.NotNull;
+import javax.validation.constraints.NotEmpty;
 
 public class ClientesDTO {
 
-        private Long id;
+        private Long idCliente;
 
-        @NotNull
-        private String name;
+        @NotEmpty
+        private String nome;
 
-        @NotNull
+        @NotEmpty
         private String cpf;
 
-        @NotNull
+        @NotEmpty
         private EmailDTO emailDTO;
 
 //        @NotNull

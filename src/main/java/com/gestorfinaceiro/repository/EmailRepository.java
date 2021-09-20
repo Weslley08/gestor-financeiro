@@ -13,9 +13,9 @@ import com.gestorfinaceiro.models.entity.Email;
 public interface EmailRepository extends JpaRepository <Email, Long> {
     Optional<Email> findByEmail(String email);
 
-    Optional<Email> findByEmailUpdate(String email, byte id_email);
+    Optional<Email> findByEmailUpdate(String email, byte id_idEmailemail);
 
-    void deleteById(Byte id_email);
+    void deleteById(Byte idEmail);
 
-    Optional<Object> findByIdEmail(Byte id_email);
+    Optional<Email> findByIdEmail(Byte idEmail);
 }

@@ -10,19 +10,25 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "TELEFONE")
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Telefone {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long idTelefone;
+
     @ManyToOne
     @JoinColumn(name = "ID_TELEFONE", nullable = false )
-    private Long idTelefone;
+    private Cliente cliente;
 
     @NotEmpty
     @Column(name = "TELEFONE_PRINCIPAL", length = 50)

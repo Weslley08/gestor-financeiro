@@ -9,13 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "Clientes")
+import com.gestorfinaceiro.models.enums.TipoSexo;
 
+@Entity
+@Table(name = "Cliente")
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class Cliente {
 
@@ -32,23 +38,37 @@ public class Cliente {
     private String nome;
 
     @NotEmpty
-    @Column(name = "SEXO", length = 10)
+    @Column(name = "DATA_DE_NASCIMENTO", length = 12)
+    private String dataNascimento;
+
+    @NotEmpty
+    @Column(name = "SEXO")
     @Enumerated(EnumType.STRING)
-    private Sexo sexo;
+    private TipoSexo tipoSexo;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
     @NotEmpty
     @Column(name = "ENDEREÇO")
     private Endereco endereco;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
     @NotEmpty
     @Column(name = "TELEFONE", length = 15)
-    @Enumerated(EnumType.STRING)
     private Telefone telefones;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
     @NotEmpty
     @Column(name = "EMAIL", length = 50)
     private Email email;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
+    @NotEmpty
+    @Column(name = "DESPESA")
+    private Despesa despesa;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Cliente")
+    @NotEmpty
+    @Column(name = "RECEITA")
+    private Receita receita;
 
 }

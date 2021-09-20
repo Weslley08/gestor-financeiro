@@ -3,7 +3,8 @@ package com.gestorfinaceiro.models.enums;
 public enum TipoSexo {
     
     MASCULINO("masculino"),
-    FEMININO("feminino");
+    FEMININO("feminino"),
+    OUTROS_SEXOS("outros_sexos");
 
     private final String tipoSexo;
 

@@ -5,10 +5,17 @@ import com.gestorfinaceiro.models.entity.Email;
 
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 //Classe para trsansformar o objeto EmailDTO em entidade Email e vice e versa
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 
 @Component
 public class EmailMapper {
