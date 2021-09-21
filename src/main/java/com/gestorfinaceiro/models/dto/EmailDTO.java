@@ -1,9 +1,13 @@
 package com.gestorfinaceiro.models.dto;
 
+import com.gestorfinaceiro.models.entity.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.lang.Nullable;
@@ -13,41 +17,9 @@ import org.springframework.lang.Nullable;
 @Data
 public class EmailDTO {
 
-    @NotEmpty
     private Long idEmail;
-
-    @NotEmpty
+    private Cliente cliente;
     private String emailPessoal;
-
-    @Nullable
     private String emailAlternativo;
-
-
-    
-    public Long getIdEmail() {
-        return idEmail;
-    }
-
-    public void setIdEmail(Long idEmail) {
-        this.idEmail = idEmail;
-    }
-
-    public String getEmailPessoal() {
-        return emailPessoal;
-    }
-
-    public void setEmailPessoal(String emailPessoal) {
-        this.emailPessoal = emailPessoal;
-    }
-
-    public String getEmailAlternativo() {
-        return emailAlternativo;
-    }
-
-    public void setEmailAlternativo(String emailAlternativo) {
-        this.emailAlternativo = emailAlternativo;
-    }
-
-    
 
 }
