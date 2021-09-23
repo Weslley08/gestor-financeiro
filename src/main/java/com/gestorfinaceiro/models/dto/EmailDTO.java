@@ -1,53 +1,26 @@
 package com.gestorfinaceiro.models.dto;
 
+import com.gestorfinaceiro.models.entity.Cliente;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotEmpty;
-
-import org.springframework.lang.Nullable;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class EmailDTO {
+// @SuppressWarnings("unused") usado para retirar esses de variavel não usada
 
-    @NotEmpty
+    @SuppressWarnings("unused")
     private Long idEmail;
 
-    @NotEmpty
+    @SuppressWarnings("unused")
+    private Cliente cliente;
+
+    @SuppressWarnings("unused")
     private String emailPessoal;
 
-    @Nullable
+    @SuppressWarnings("unused")
     private String emailAlternativo;
-
-
-    
-    public Long getIdEmail() {
-        return idEmail;
-    }
-
-    public void setIdEmail(Long idEmail) {
-        this.idEmail = idEmail;
-    }
-
-    public String getEmailPessoal() {
-        return emailPessoal;
-    }
-
-    public void setEmailPessoal(String emailPessoal) {
-        this.emailPessoal = emailPessoal;
-    }
-
-    public String getEmailAlternativo() {
-        return emailAlternativo;
-    }
-
-    public void setEmailAlternativo(String emailAlternativo) {
-        this.emailAlternativo = emailAlternativo;
-    }
-
-    
 
 }

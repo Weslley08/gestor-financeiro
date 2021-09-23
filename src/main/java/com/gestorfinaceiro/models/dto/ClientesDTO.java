@@ -4,6 +4,8 @@ import javax.validation.constraints.NotEmpty;
 
 public class ClientesDTO {
 
+        // @SuppressWarnings("unused") usado para retirar esses de variavel não usada
+        @SuppressWarnings("unused")
         private Long idCliente;
 
         @NotEmpty
@@ -15,15 +17,15 @@ public class ClientesDTO {
         @NotEmpty
         private EmailDTO emailDTO;
 
-//        @NotNull
-//        private
-//
-////        @NotNull
-////        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-////        private LocalDate date;
-////
-////        @NotNull
-////        //@Digits(integer = 3, fraction = 2) // formatação dos números
-////        private Double variation;
+        // @NotNull
+        // private
+        //
+        //// @NotNull
+        //// @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+        //// private LocalDate date;
+        ////
+        //// @NotNull
+        //// //@Digits(integer = 3, fraction = 2) // formatação dos números
+        //// private Double variation;
 
-    }
+}

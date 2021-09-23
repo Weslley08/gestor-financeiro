@@ -13,7 +13,7 @@
 	<name>gestor-financeiro</name>
 	<description>Gestor de finanças pessoais, desenvolvido com o intuito de facilitar a gestão financeira pessoal do usuário. </description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>16</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -38,16 +38,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
-
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.23</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
+			<version>1.18.20</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -61,14 +61,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
 			</plugin>
 		</plugins>
 	</build>
