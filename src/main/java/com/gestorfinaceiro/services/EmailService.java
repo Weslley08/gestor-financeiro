@@ -7,7 +7,6 @@ import com.gestorfinaceiro.models.entity.Email;
 import com.gestorfinaceiro.repository.EmailRepository;
 
 import com.gestorfinaceiro.utils.MessageUtils;
-import javassist.NotFoundException;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,55 +35,56 @@ public class EmailService {
     @Autowired
     private EmailMapper mapper;
 
-    // Salvar email no Bancode dados
+    // Salvar email no Banco de dados
     @Transactional
-    public EmailDTO save(EmailDTO dto) {
-        Optional<Email> optionalEmail = repository.findByEmail(dto.getEmailPessoal());
+    public EmailDTO save(EmailDTO emailDto) {
+        Optional<Email> optionalEmail = repository.findByEmail(emailDto.getEmailPessoal());
         if (optionalEmail.isPresent()) {
             throw new EmailException(MessageUtils.EMAIL_JA_EXISTENTE);
         }
 
-        Email email = mapper.toEntity(dto);
+        Email email = mapper.toEntity(emailDto);
         repository.save(email);
         return mapper.toDto(email);
     }
 
     // Atualizar email por id
     @Transactional
-    public EmailDTO update(EmailDTO dto) {
-        Optional<Email> optionalEmail = repository.findByEmailUpdate(dto.getEmailPessoal(), dto.getIdEmail());
+    public EmailDTO update(EmailDTO emailDto) {
+        Optional<Email> optionalEmail = repository.findByEmailUpdate(emailDto.getIdEmail());
         if (optionalEmail.isPresent()) {
             throw new EmailException(MessageUtils.EMAIL_JA_EXISTENTE);
         }
 
-        Email email = mapper.toEntity(dto);
+        Email email = mapper.toEntity(emailDto);
         repository.save(email);
         return mapper.toDto(email);
     }
 
     @Transactional
-<<<<<<< HEAD
-    public EmailDTO delete(Long idEmail) {
-        EmailDTO dto = this.findByIdEmail(idEmail);
-        repository.deleteById(dto.getIdEmail());
-        return dto;
+    public EmailDTO delete(EmailDTO emailDTO) {
+      Optional<EmailDTO> emailDto = findByIdEmail(emailDTO.getIdEmail());
+      return repository.deleteById(emailDto.);
+
     }
 
-    private EmailDTO findByIdEmail(Long idEmail) {
-        return repository.findByIdEmail(idEmail).map(mapper::toDto).orElseThrow(NotFoundException::new);
-=======
-    public EmailDTO delete(Byte id_email) throws NotFoundException {
-        EmailDTO dto = this.findByIdEmail(id_email);
-        repository.deleteById(dto.getId_Email());
-        return dto;
-    }
 
-    private EmailDTO findByIdEmail(Byte id_email) throws NotFoundException {
-        return repository.findByIdEmail(id_email)
-                .map(mapper::toDto)
-                .orElseThrow(() -> new NotFoundException("Email não existe"));
->>>>>>> d8864b5b8b0635f335d5ea352b9f7f8444197955
+    @Transactional
+    public Optional<EmailDTO> findByIdEmail(EmailDTO emailDto) {
+        return repository.findByIdEmail(emailDto.getIdEmail()).map(mapper::toDto);
+//        Optional<Email> optionalEmail = repository.findByEmailUpdate(emailDto.getIdEmail());
+//        if (optionalEmail.isPresent()) {
+//            throw new EmailException(MessageUtils.EMAIL_JA_EXISTENTE);
+//        }
+//
+//        Email email = mapper.toEntity(emailDto);
+//        repository.save(email);
+//        return mapper.toDto(email);
     }
+//    private EmailDTO findByIdEmail(Long idEmail) {
+//        return repository.findByIdEmail(idEmail).map(mapper::toDto).orElseThrow(NotFoundException::new);
+//
+
 
     @Transactional(readOnly = true)
     public List<EmailDTO> findAll() {

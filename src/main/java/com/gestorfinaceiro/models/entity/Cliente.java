@@ -9,9 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
@@ -26,12 +24,13 @@ import org.hibernate.validator.constraints.br.CPF;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@RequiredArgsConstructor
 public class Cliente {
 
     @Id
     @CPF
     @NotEmpty
-    @Column(name = "CPF", length = 15)
+    @Column(name = "CPF", nullable = false, length = 15)
     private String cpf;
 
     @Column(name = "ID")

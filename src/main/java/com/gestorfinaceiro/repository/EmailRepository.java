@@ -1,11 +1,11 @@
 package com.gestorfinaceiro.repository;
 
+import com.gestorfinaceiro.models.dto.EmailDTO;
+import com.gestorfinaceiro.models.entity.Email;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-
-import com.gestorfinaceiro.models.entity.Email;
 
 //Interação com o banco de dados
 
@@ -13,7 +13,7 @@ import com.gestorfinaceiro.models.entity.Email;
 public interface EmailRepository extends JpaRepository <Email, Long> {
     Optional<Email> findByEmail(String email);
 
-    void deleteById(Byte idEmail);
+    EmailDTO deleteById(EmailDTO emailDTO);
 
     Optional<Email> findByIdEmail(Long idEmail);
 
