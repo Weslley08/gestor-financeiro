@@ -18,6 +18,8 @@ import java.util.List;
 
 import com.gestorfinaceiro.models.enums.TipoSexo;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 @Entity
 @Table(name = "Cliente")
 
@@ -27,6 +29,7 @@ import com.gestorfinaceiro.models.enums.TipoSexo;
 public class Cliente {
 
     @Id
+    @CPF
     @NotEmpty
     @Column(name = "CPF", length = 15)
     private String cpf;
